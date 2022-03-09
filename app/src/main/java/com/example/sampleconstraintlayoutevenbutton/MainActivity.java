@@ -49,6 +49,26 @@ public class MainActivity extends AppCompatActivity {
              //membuat variabel toast dan membuat toast dengan menambahkan variabel nama dan password
              if (nama.equals("admin@mail.com") && password.equals("123")){
                  Toast.makeText(MainActivity.this, "Login Sukses", Toast.LENGTH_LONG).show();
+
+                 //membuat objek bundle
+                 Bundle b = new Bundle();
+
+                 //memasukkan value dari variable nama dengan kunci "a"
+                 // dan dimasukkan kedalam bundle
+                 b.putString("a",nama.trim());
+
+                 //memasukkan value dari variable password dengan kunci "b"
+                 // dan dimasukkan kedalam bundle
+                 b.putString("b",password.trim());
+
+                 //membuat objek intent berpindah activity dari mainativity ke ActivityHasil
+                 Intent i = new Intent(getApplicationContext(), Activitykedua.class);
+
+                 //memasukkan bundle kedalam intent untuk dikirimkan ke Activityke2
+                 i.putExtras(b);
+
+                 //berpindah ke Activityke2
+                 startActivity(i);
              }
              else if (nama.equals("admin@mail.com") && password.equals(password)){
                  Toast.makeText(MainActivity.this, "Password Salah", Toast.LENGTH_LONG).show();
